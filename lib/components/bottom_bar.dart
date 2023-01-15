@@ -12,6 +12,7 @@ class BottomBar extends StatelessWidget {
   final Track track;
   final AudioPlayer audioPlayer;
   final Duration currentAudioPosition;
+  final Color backgroundColor;
 
   BottomBar({
     required this.playPause,
@@ -21,6 +22,7 @@ class BottomBar extends StatelessWidget {
     required this.track,
     required this.audioPlayer,
     required this.currentAudioPosition,
+    required this.backgroundColor,
   });
 
   String printDuration() {
@@ -39,7 +41,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: lighterGrey,
+      color: backgroundColor,
       width: MediaQuery.of(context).size.width * 1,
       height: 65,
       child: Row(
@@ -56,6 +58,7 @@ class BottomBar extends StatelessWidget {
                       autoFocus: false,
                       icon: Icon(Icons.fast_rewind),
                       onClick: track.isNull() ? () {} : backward,
+                      color: primaryOrange,
                     ),
                   ),
                   Expanded(
@@ -65,6 +68,7 @@ class BottomBar extends StatelessWidget {
                           ? Icons.play_arrow
                           : Icons.pause),
                       onClick: track.isNull() ? () {} : playPause,
+                      color: primaryOrange,
                     ),
                   ),
                   Expanded(
@@ -72,12 +76,14 @@ class BottomBar extends StatelessWidget {
                       autoFocus: false,
                       icon: Icon(Icons.fast_forward),
                       onClick: track.isNull() ? () {} : forward,
+                      color: primaryOrange,
                     ),
                   ),
                   Expanded(
                     child: SmallButton(
                       autoFocus: false,
                       icon: Icon(Icons.stop),
+                      color: primaryOrange,
                       onClick: stop,
                     ),
                   ),

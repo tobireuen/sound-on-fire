@@ -12,6 +12,7 @@ class MainArea extends StatelessWidget {
     required ScrollController scrollController,
     required this.trackTiles,
     required this.isLoading,
+    required this.toggleDarkMode,
   }) : _scrollController = scrollController;
 
   final List<AutocompleteItem> autocompleteItems;
@@ -20,6 +21,8 @@ class MainArea extends StatelessWidget {
   final ScrollController _scrollController;
   final List<TrackTile> trackTiles;
   final bool isLoading;
+  final bool isDarkModeEnabled;
+  final Function toggleDarkMode;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,8 @@ class MainArea extends StatelessWidget {
               onKeyboardAction: onKeyboardAction,
               isAlphabeticalKeyboard: isAlphabeticalKeyboard,
               isLoading: isLoading,
+              isDarkModeEnabled: isDarkModeEnabled,
+              toggleDarkMode: toggleDarkMode,
             ),
             ResultArea(
               scrollController: _scrollController,
